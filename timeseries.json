@@ -1,0 +1,9 @@
+{
+    "TimeseriesId": 1,  
+    "StartTimestampUTC": "2020-03-21T13:00:00.000Z",
+    "EndTimestampUTC": "2020-03-21T13:15:00.000Z",
+    "Period":"15M",
+    "PeriodInHours": 0.25,
+    "Value": 12.50,
+    "ProcessSteps": "initial, route1, route2"
+  }
