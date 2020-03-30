@@ -1,0 +1,36 @@
+{
+   "$schema": "http://json-schema.org/draft-04/schema#",
+   "title": "Timeseries",
+   "description": "A Timeseries in OPDW Context",
+   "type": "object",
+   "properties": {
+     "TimeseriesId": {
+         "description": "The unique identifier for a timeseries",
+         "type": "string"
+      },
+      "StartTimestampUTC": {
+         "description": "Start time for the given value. Should be like 2020-03-21T13:00:00.000Z",
+         "type": "string"
+      },
+      "EndTimestampUTC": {
+         "description": "Start time for the given value. Should be like 2020-03-21T13:00:00.000Z",
+         "type": "string"
+      },
+      "Period": {
+         "description": "Period in JODA expression like eg 15M",
+         "type": "string"
+      },
+      "PeriodInHours": {
+         "description": "Period expressed in fraction of hours eg 15M period is 0.25",
+         "type": "number"
+      },
+      "value": {
+         "description": "The value of the timeseries bucket",
+         "type": "number"
+      }
+   },
+   "required": [
+      "TimeseriesId",
+      "StartTimestampUTC"
+   ]
+}
