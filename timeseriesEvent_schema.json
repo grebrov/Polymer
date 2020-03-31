@@ -4,23 +4,23 @@
    "description": "A Timeseries in OPDW Context",
    "type": "object",
    "properties": {
-     "TimeseriesId": {
+     "timeseriesId": {
          "description": "The unique identifier for a timeseries",
          "type": "string"
       },
-      "StartTimestampUTC": {
+      "startTimestampUTC": {
          "description": "Start time for the given value. Should be like 2020-03-21T13:00:00.000Z",
          "type": "string"
       },
-      "EndTimestampUTC": {
+      "endTimestampUTC": {
          "description": "Start time for the given value. Should be like 2020-03-21T13:00:00.000Z",
          "type": "string"
       },
-      "Period": {
+      "period": {
          "description": "Period in JODA expression like eg 15M",
          "type": "string"
       },
-      "PeriodInHours": {
+      "periodInHours": {
          "description": "Period expressed in fraction of hours eg 15M period is 0.25",
          "type": "number"
       },
