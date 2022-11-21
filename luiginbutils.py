@@ -1,4 +1,3 @@
-%python
 import time
 import luigi
 import requests
