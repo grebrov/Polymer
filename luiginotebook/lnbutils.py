@@ -14,7 +14,7 @@ def fibo(n):    # write Fibonacci series up to n
         a, b = b, a+b
     print()
 
-#luigi.configuration.get_config().set('core', 'default_scheduler_host', 'luigid-s')
+luigi.configuration.get_config().set('core', 'default_scheduler_host', 'luigid-s')
 
 def startZeppelinNotebook(id):
     #todo: get id by name,
@@ -90,5 +90,3 @@ class ZeppelinNotebookTarget(luigi.Target):
         print("in exists")
         status, dfStatus=getZeppelinNotebookStatus(self.id,self.time)
         return (status=="FINISHED")
-
-#z.runNote('2HHJ45XF5') #Dazu braucht es einen gemeinsamen kontext (interpreter binding: globaly shared)
