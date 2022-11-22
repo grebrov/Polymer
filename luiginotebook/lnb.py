@@ -1,4 +1,4 @@
-def test:
+def test():
     sys._current_frames()
     
 def startZeppelinNotebook(id):
