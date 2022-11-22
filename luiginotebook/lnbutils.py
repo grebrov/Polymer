@@ -1,5 +1,5 @@
 import time
-import luigi
+#import luigi
 import requests
 import pandas as pd
 import pandas
@@ -75,18 +75,18 @@ def getZeppelinNotebookStatus(id, time):
     #print("Status: " + status + " lastStartTime: " +strftime('%d %m %Y %H:%M:%S',lastStartTime) + " time: " +strftime('%d %m %Y %H:%M:%S',time.timetuple()))
     return status, dfStatus
     
-class ZeppelinNotebookTarget(luigi.Target):
-    """
-    This target checks if the notebook executed successfully.
-    """
-
-    def __init__(self, id, time):
-        self.host = "zeppelin-server"
-        self.port = "80"
-        self.id = id
-        self.time=time
-
-    def exists(self):
-        print("in exists")
-        status, dfStatus=getZeppelinNotebookStatus(self.id,self.time)
-        return (status=="FINISHED")
+#class ZeppelinNotebookTarget(luigi.Target):
+#    """
+#    This target checks if the notebook executed successfully.
+#    """
+#
+#    def __init__(self, id, time):
+#        self.host = "zeppelin-server"
+#        self.port = "80"
+#        self.id = id
+#        self.time=time
+#
+#    def exists(self):
+#        print("in exists")
+#        status, dfStatus=getZeppelinNotebookStatus(self.id,self.time)
+#        return (status=="FINISHED")
