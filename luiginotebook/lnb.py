@@ -1,5 +1,6 @@
-import sys
-import pandas as pd
+def test:
+    sys._current_frames()
+    
 def startZeppelinNotebook(id):
     #todo: get id by name,
     #potential: make server and port configurable, pass parameters to notebook
