@@ -3,7 +3,7 @@ configuration.get_config().set('core', 'default_scheduler_host', 'luigid-s')
 def startZeppelinNotebook(id):
     #todo: get id by name,
     #potential: make server and port configurable, pass parameters to notebook
-    session = requests.Session()
+    session = Session()
     retry = Retry(connect=3, backoff_factor=0.5,  status_forcelist=(500, 429))
     adapter = HTTPAdapter(max_retries=retry)
     session.mount('https://', adapter)
