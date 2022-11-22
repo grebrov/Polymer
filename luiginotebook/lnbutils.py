@@ -28,7 +28,7 @@ def startZeppelinNotebook(id):
 def getZeppelinNotebookStatus(id, time):
     #pseudo: check all paragraphs, concatenate all paragraph results, calculate overall status (running, error, success)
 
-    session = requests.Session()
+    session = Session()
     retry = Retry(connect=3, backoff_factor=0.5,  status_forcelist=(500, 429))
     adapter = HTTPAdapter(max_retries=retry)
     session.mount('https://', adapter)
