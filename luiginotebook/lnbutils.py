@@ -1,3 +1,10 @@
+def fibo(n):    # write Fibonacci series up to n
+    a, b = 0, 1
+    while a < n:
+        print(a, end=' ')
+        a, b = b, a+b
+    print()
+
 #luigi.configuration.get_config().set('core', 'default_scheduler_host', 'luigid-s')
 
 def startZeppelinNotebook(id):
