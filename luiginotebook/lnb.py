@@ -1,4 +1,5 @@
 import sys
+import pandas as pd
 def startZeppelinNotebook(id):
     #todo: get id by name,
     #potential: make server and port configurable, pass parameters to notebook
