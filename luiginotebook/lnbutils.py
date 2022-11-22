@@ -1,4 +1,4 @@
-configuration.get_config().set('core', 'default_scheduler_host', 'luigid-s')
+luigi.configuration.get_config().set('core', 'default_scheduler_host', 'luigid-s')
 
 def startZeppelinNotebook(id):
     #todo: get id by name,
@@ -41,7 +41,7 @@ def getZeppelinNotebookStatus(id, time):
     if response.status_code == 200:
         response_json = response.json()
         #print(response_json)
-        dfStatus=DataFrame.from_dict(response_json['body']['paragraphs'])
+        dfStatus=pd.DataFrame.from_dict(response_json['body']['paragraphs'])
         dfStatus.dropna(subset=['status', 'finished'], inplace=True)
         startTimes=dfStatus['started'].apply(lambda x: strptime(x,'%a %b %d %H:%M:%S %Z %Y'))
         lastStartTime=startTimes.agg(max)
@@ -59,7 +59,7 @@ def getZeppelinNotebookStatus(id, time):
     #print("Status: " + status + " lastStartTime: " +strftime('%d %m %Y %H:%M:%S',lastStartTime) + " time: " +strftime('%d %m %Y %H:%M:%S',time.timetuple()))
     return status, dfStatus
     
-class ZeppelinNotebookTarget(Target):
+class ZeppelinNotebookTarget(luigi.Target):
     """
     This target checks if the notebook executed successfully.
     """
