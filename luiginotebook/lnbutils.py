@@ -14,7 +14,7 @@ def fibo(n):    # write Fibonacci series up to n
         a, b = b, a+b
     print()
 
-luigi.configuration.get_config().set('core', 'default_scheduler_host', 'luigid-s')
+#luigi.configuration.get_config().set('core', 'default_scheduler_host', 'luigid-s')
 
 def startZeppelinNotebook(id):
     #todo: get id by name,
