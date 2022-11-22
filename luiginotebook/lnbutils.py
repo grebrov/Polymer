@@ -1,11 +1,3 @@
-import time
-from luigi import Target, configuration
-from requests import Session 
-from pandas import DataFrame
-from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
-from time import gmtime, strftime, strptime
-
 configuration.get_config().set('core', 'default_scheduler_host', 'luigid-s')
 
 def startZeppelinNotebook(id):
