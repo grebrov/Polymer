@@ -1,6 +1,14 @@
-def test():
-    sys._current_frames()
-    
+import time
+import luigi
+import requests
+import pandas as pd
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
+from time import gmtime, strftime, strptime
+from datetime import datetime
+
+luigi.configuration.get_config().set('core', 'default_scheduler_host', 'luigid-s')
+
 def startZeppelinNotebook(id):
     #todo: get id by name,
     #potential: make server and port configurable, pass parameters to notebook
@@ -59,3 +67,19 @@ def getZeppelinNotebookStatus(id, time):
 
     #print("Status: " + status + " lastStartTime: " +strftime('%d %m %Y %H:%M:%S',lastStartTime) + " time: " +strftime('%d %m %Y %H:%M:%S',time.timetuple()))
     return status, dfStatus
+    
+class ZeppelinNotebookTarget(luigi.Target):
+    """
+    This target checks if the notebook executed successfully.
+    """
+
+    def __init__(self, id, time):
+        self.host = "zeppelin-server"
+        self.port = "80"
+        self.id = id
+        self.time=time
+
+    def exists(self):
+        print("in exists")
+        status, dfStatus=getZeppelinNotebookStatus(self.id,self.time)
+        return (status=="FINISHED")
