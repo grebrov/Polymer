@@ -51,7 +51,7 @@ def getZeppelinNotebookStatus(id, time):
         response_json = response.json()
         #print(response_json)
         dfStatus=pd.DataFrame.from_dict(response_json['body']['paragraphs'])
-        dfStatus.dropna(subset=['status', 'finished'], inplace=True)
+        dfStatus.dropna(subset=['status', 'started'], inplace=True)
         startTimes=dfStatus['started'].apply(lambda x: strptime(x,'%a %b %d %H:%M:%S %Z %Y'))
         lastStartTime=startTimes.agg(max)
         if lastStartTime<time.timetuple(): #last starttime in notebook is less the the start of the job, thus, not started
